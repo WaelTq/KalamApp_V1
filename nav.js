@@ -9,6 +9,11 @@ import Profile from './Screens/Profile'
 import ChatUser from './Screens/ChatUser'
 import UserJoin from './Screens/UserJoin'
 import Info from './Screens/Info'
+import PhonContacts from './Screens/PhonContacts'
+import PhonGroup from './Screens/PhonGroup'
+
+
+
 
 
 
@@ -25,6 +30,10 @@ const AppNavigator = createStackNavigator(
     ChatUser: {screen: ChatUser},
     UserJoin: {screen: UserJoin},
     Info: {screen: Info},
+    PhonContacts: {screen: PhonContacts},
+    PhonGroup: {screen: PhonGroup},
+
+    
 
     
     

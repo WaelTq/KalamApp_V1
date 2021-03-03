@@ -20,9 +20,7 @@ export default class Profile extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <TouchableOpacity
-            
-          >
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('PhonContacts')}>
             <FontAwesome name="pencil-square-o" size={24} color="black" />
           </TouchableOpacity>
           <Text style={[styles.text,{fontSize:15}]}>My Profile</Text>
