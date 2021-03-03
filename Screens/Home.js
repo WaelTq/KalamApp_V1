@@ -239,7 +239,7 @@ export default class Home extends React.Component {
         </View>
         <View style={styles.footer}>
         <TouchableOpacity 
-        onPress={() => this.props.navigation.navigate('Setting')} 
+        onPress={() => this.props.navigation.navigate('ChatUser')} 
         style={styles.button}>
             <Feather name="settings" size={24} color="black" />
           </TouchableOpacity>

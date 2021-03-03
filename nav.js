@@ -6,6 +6,9 @@ import Login from './Screens/Login'
 import Register from './Screens/Register'
 import Home from './Screens/Home'
 import Profile from './Screens/Profile'
+import ChatUser from './Screens/ChatUser'
+import UserJoin from './Screens/UserJoin'
+import Info from './Screens/Info'
 
 
 
@@ -19,6 +22,12 @@ const AppNavigator = createStackNavigator(
     Register: {screen: Register},
     Home: {screen: Home},
     Profile: {screen: Profile},
+    ChatUser: {screen: ChatUser},
+    UserJoin: {screen: UserJoin},
+    Info: {screen: Info},
+
+    
+    
 
    
    
