@@ -66,7 +66,7 @@ export default class Home extends React.Component {
         <View style={styles.container}>
             <View style={styles.header}>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Home')}
+            onPress={() => this.props.navigation.navigate('Notification')}
           >
             <MaterialCommunityIcons
               name="bell-outline"

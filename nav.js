@@ -11,6 +11,10 @@ import UserJoin from './Screens/UserJoin'
 import Info from './Screens/Info'
 import PhonContacts from './Screens/PhonContacts'
 import PhonGroup from './Screens/PhonGroup'
+import ContactUsInfo from './Screens/ContactUsInfo'
+import ContactUsSendMessage from './Screens/ContactUsSendMessage'
+import Notification from './Screens/Notification'
+
 
 
 
@@ -32,6 +36,15 @@ const AppNavigator = createStackNavigator(
     Info: {screen: Info},
     PhonContacts: {screen: PhonContacts},
     PhonGroup: {screen: PhonGroup},
+    ContactUsInfo: {screen: ContactUsInfo},
+    ContactUsSendMessage: {screen: ContactUsSendMessage},
+    Notification: {screen: Notification},
+
+    
+
+    
+
+    
 
     
 

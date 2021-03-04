@@ -107,6 +107,20 @@ export default class PhonGroup extends React.Component {
                 <FontAwesome style={{marginLeft:20}} name="users" size={30} color="#055be2" />
                 </TouchableOpacity>
         </View>
+        <View style={styles.contact}>
+                <TouchableOpacity>
+                <Entypo  name="dots-three-vertical" size={24} color="#055be2" />
+                </TouchableOpacity>
+        
+                <View style={{width:'80%'}}>
+                    <Text style={styles.name}>Team A </Text>
+                    <Text style={styles.email}>13 Participants</Text>
+                </View>
+                <TouchableOpacity>
+                <FontAwesome style={{marginLeft:20}} name="users" size={30} color="#055be2" />
+                </TouchableOpacity>
+        </View>
+
         </View>
 
         
@@ -139,7 +153,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SemiBold',
   },
   button:{
-    height:'10%',
+    height:'8%',
     flexDirection:'row',
     borderBottomWidth:1,
 borderBottomColor: '#d5d5d5',
@@ -159,7 +173,7 @@ name:{
     color:'#01084e'
 },
 email:{
-    color:'#01084e'
+    color:'#8ab7fb'
 },
 contact:{
     flexDirection:'row',

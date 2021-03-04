@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SemiBold',
   },
   button:{
-    height:'10%',
+    height:'8%',
     flexDirection:'row',
     borderBottomWidth:1,
 borderBottomColor: '#d5d5d5',
@@ -235,7 +235,7 @@ contact:{
 contacts:{
     paddingLeft:25,
     paddingRight:25,
-    height:'65%'
+    height:'67%'
 },
 addNew:{
     alignItems:'flex-start',
