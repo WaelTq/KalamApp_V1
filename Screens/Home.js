@@ -239,7 +239,7 @@ export default class Home extends React.Component {
         </View>
         <View style={styles.footer}>
         <TouchableOpacity 
-        onPress={() => this.props.navigation.navigate('ChatUser')} 
+        onPress={() => this.props.navigation.navigate('Setting')} 
         style={styles.button}>
             <Feather name="settings" size={24} color="black" />
           </TouchableOpacity>
@@ -387,6 +387,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     height: '10%',
     padding: '5%',
+    marginTop:5,
     backgroundColor: '#e5ecf4',
     marginHorizontal: '10%',
     paddingHorizontal: 10,

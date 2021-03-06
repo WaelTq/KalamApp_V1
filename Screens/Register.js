@@ -44,7 +44,7 @@ export default class Register extends React.Component {
             height: '40%',
             position: 'relative',
             top: 0,
-            left: 1,
+            left: 0,
             borderBottomRightRadius: 100,
             borderTopRightRadius: 5,
             borderTopLeftRadius: 5,

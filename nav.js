@@ -14,6 +14,7 @@ import PhonGroup from './Screens/PhonGroup'
 import ContactUsInfo from './Screens/ContactUsInfo'
 import ContactUsSendMessage from './Screens/ContactUsSendMessage'
 import Notification from './Screens/Notification'
+import Setting from './Screens/Setting'
 
 
 
@@ -39,6 +40,9 @@ const AppNavigator = createStackNavigator(
     ContactUsInfo: {screen: ContactUsInfo},
     ContactUsSendMessage: {screen: ContactUsSendMessage},
     Notification: {screen: Notification},
+    Setting: {screen: Setting},
+
+    
 
     
 
