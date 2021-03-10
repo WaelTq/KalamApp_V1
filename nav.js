@@ -15,6 +15,8 @@ import ContactUsInfo from './Screens/ContactUsInfo'
 import ContactUsSendMessage from './Screens/ContactUsSendMessage'
 import Notification from './Screens/Notification'
 import Setting from './Screens/Setting'
+import ProfileStack from './routes/ProfileStack'
+import SaveMeeting from './Screens/SaveMeeting'
 
 
 
@@ -41,6 +43,13 @@ const AppNavigator = createStackNavigator(
     ContactUsSendMessage: {screen: ContactUsSendMessage},
     Notification: {screen: Notification},
     Setting: {screen: Setting},
+    SaveMeeting: {screen: SaveMeeting},
+
+    
+    ProfileNav: {
+      screen: ProfileStack,
+    },
+    
 
     
 

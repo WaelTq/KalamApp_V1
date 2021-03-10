@@ -60,6 +60,9 @@ export default class Home extends React.Component {
             })
         }
     } 
+    open=()=>{
+      this.props.navigation.openDrawer()
+    }
 
     render() {
     return (
@@ -79,7 +82,7 @@ export default class Home extends React.Component {
           >
             Homepage
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={this.open}>
             
             <FontAwesome5 name="bars" size={24} color="black" />
           </TouchableOpacity>
@@ -150,7 +153,7 @@ export default class Home extends React.Component {
           </TouchableOpacity>
           <Modal style={{width:"50%",height:'50%',alignItems:'center',justifyContent:'center'}} transparent={true} visible={this.state.create}>
             <View style={styles.centeredView1}>
-          <View style={styles.modalView}>
+             <View style={styles.modalView}>
                <Text style={styles.headTitle}>Create Meeting</Text>
                 <Text style={styles.defTitle}> You can meet now easily</Text>
                 <TextInput style={styles.input} placeholder="      Meeting Name"/>
@@ -160,7 +163,7 @@ export default class Home extends React.Component {
                 <Text style={styles.textDes}>It means that ypu and all the people in the meeting can change that the text for a certain amount of time</Text>
                 <Text style={styles.button1} onPress={this.createMeet} >Create Meeting</Text>
                
-                </View>
+                  </View>
                 </View>
             </Modal>
 
@@ -245,7 +248,7 @@ export default class Home extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity 
-          onPress={() => this.props.navigation.navigate('Profile')}
+          onPress={() => this.props.navigation.navigate('SaveMeeting')}
           style={styles.button}>
             <FontAwesome5 name="user-circle" size={24} color="black" />
           </TouchableOpacity>

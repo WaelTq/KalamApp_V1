@@ -4,6 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import AppNavigator from './nav';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
+
 import {render} from 'react-dom';
 import { NavigationContainer } from '@react-navigation/native';
 
