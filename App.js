@@ -1,39 +1,76 @@
-import {StatusBar} from 'expo-status-bar';
-import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import AppNavigator from './nav';
-import * as Font from 'expo-font';
-import AppLoading from 'expo-app-loading';
-
-import {render} from 'react-dom';
+import * as React from 'react';
+import { Button, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import HomeScreen from './screens/HomeScreen';
+import SettingsScreen from  './screens/SettingScreen';
+import SideMenu from './component/SideMenu';
+import PhoneBook from './screens/PhoneBook';
+import PhoneGroups from './screens/PhoneGroups';
+import ContactUs from './screens/ContactUs';
+import ContactInfo from './screens/ContactInfo';
+import Profile from './screens/Profile';
+import Notification from './screens/Notification';
+import Splash from './screens/Splash';
+import Login from './screens/Login';
+import Register from './screens/Register';
+import MeetChat from './screens/MeetChat';
+import MeetUsers from './screens/MeetUsers';
+import MeetInfo from './screens/MeetInfo';
 
 
 
-export default class App extends React.Component {
-  state = {
-    isFontLoaded: false,
-  };
 
-  async componentDidMount() {
-    await Font.loadAsync({
-      SemiBold: require('./fonts/Montserrat-SemiBold.otf'),
-      Medium: require('./fonts/Montserrat-Medium.otf'),
-      Regular: require('./fonts/Montserrat-Regular.otf'),
-    });
-    this.setState({isFontLoaded: true});
-  }
 
-  render() {
-    return this.state.isFontLoaded === true ? <AppNavigator /> : AppLoading;
-  }
+
+
+
+
+
+
+
+const Drawer = createDrawerNavigator();
+
+ function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator drawerContent={ props => <SideMenu {...props} /> }>
+      <Drawer.Screen name="Splash" component={Splash} />
+      <Drawer.Screen name="Login" component={Login} />
+      <Drawer.Screen name="Register" component={Register} />
+
+
+      
+
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Settings" component={SettingsScreen} />
+
+        <Drawer.Screen name="PhoneBook" component={PhoneBook} />
+        <Drawer.Screen name="PhoneGroups" component={PhoneGroups} />
+
+        <Drawer.Screen name="ContactUs" component={ContactUs} />
+        <Drawer.Screen name="ContactInfo" component={ContactInfo} />
+
+        <Drawer.Screen name="Profile" component={Profile} />
+        <Drawer.Screen name="Notification" component={Notification} />
+
+        <Drawer.Screen name="MeetChat" component={MeetChat} />
+        <Drawer.Screen name="MeetUsers" component={MeetUsers} />
+        <Drawer.Screen name="MeetInfo" component={MeetInfo} />
+
+        
+        
+
+
+        
+
+
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+export default App;
+

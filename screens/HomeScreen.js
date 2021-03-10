@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -17,59 +17,43 @@ import {
   MaterialCommunityIcons,
   AntDesign,
   Entypo,
+  MaterialIcons,
 } from '@expo/vector-icons';
 
-export default class Home extends React.Component {
-    state ={
-        create:false,
-        join:false,
-        schedule:false,
-    }
-    createMeet =()=>{
-        if(this.state.create === true){
-            this.setState({
-                create:false
-            })
-        }else if(this.state.create === false){
-            this.setState({
-                create:true
-            })
-        }        
-    }
-    joinMeet =()=>{
-        if(this.state.join === true){
-            this.setState({
-                join:false
-            })
-        }else if(this.state.join === false){
-            this.setState({
-                join:true
-            })
-        }
-       
-        
-    }
-    scheduleMeet =()=>{
-        if(this.state.schedule === true){
-            this.setState({
-                schedule:false
-            })
-        }else if(this.state.schedule === false){
-            this.setState({
-                schedule:true
-            })
-        }
-    } 
-    open=()=>{
-      this.props.navigation.openDrawer()
-    }
 
-    render() {
+
+// onPress={() =>navigation.openDrawer('SideMenu')}
+
+const HomeScreen = ({navigation}) => {
+
+    const [isCreate, setIsCreate] = useState(false);
+    const create = () => setIsCreate(previousState => !previousState);
+
+    const [isJoin, setIsJoin] = useState(false);
+    const join = () => setIsJoin(previousState => !previousState);
+
+    const [isSchedule, setIsSchedule] = useState(false);
+    const schedule = () => setIsSchedule(previousState => !previousState);
+
+   
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
+            <TouchableOpacity onPress={() =>navigation.openDrawer('SideMenu')}>
+            
+            <FontAwesome5 name="bars" size={24} color="black" />
+          </TouchableOpacity>
+        
+          <Text
+            style={{fontSize: 18, color: '#060a37'}}
+          >
+            Homepage
+          </Text>
+          
+
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Notification')}
+            onPress={() => navigation.navigate('Notification')}
           >
             <MaterialCommunityIcons
               name="bell-outline"
@@ -77,20 +61,11 @@ export default class Home extends React.Component {
               color="black"
             />
           </TouchableOpacity>
-          <Text
-            style={{fontSize: 18, color: '#060a37', fontFamily: 'SemiBold'}}
-          >
-            Homepage
-          </Text>
-          <TouchableOpacity onPress={this.open}>
-            
-            <FontAwesome5 name="bars" size={24} color="black" />
-          </TouchableOpacity>
         </View>
      
         <View style={styles.info}>
           <Image
-          source={require('../assets/image/download.jpg')}
+          source={require('../assets/download.jpg')}
           style={{
               width: '100%',
               height: '100%',
@@ -104,56 +79,55 @@ export default class Home extends React.Component {
           />
         </View>
         <View style={styles.dot}>
-        
-            <FontAwesome
-              name="dot-circle-o"
-              style={{marginLeft:5}}
-              size={12}
-              color="black"
-
-            />  
-            <FontAwesome
-              name="dot-circle-o"
-              style={{paddingEnd: 5}}
-              size={12}
-              color="black"
-            />
-            <FontAwesome
+        <FontAwesome
               name="dot-circle-o"
               style={{paddingEnd: 5}}
               size={12}
               color="#1458c3"
             />
         
+            <FontAwesome
+              name="dot-circle-o"
+              style={{paddingEnd: 5}}
+              size={12}
+              color="black"
+
+            />  
+            <FontAwesome
+              name="dot-circle-o"
+              style={{paddingEnd: 5,paddingEnd: 5}}
+              size={12}
+              color="black"
+            />
+            
+        
         </View>
         <View style={{height: '45%',marginTop:'-20%', backgroundColor: '#fafbfd',}}>
 
           <TouchableOpacity 
           style={styles.meet}
-          onPress={this.createMeet}
+          onPress={create}
           >
-              <AntDesign
-              style={{marginLeft: '7%'}}
-              name="arrowright"
-              size={24}
-              color="black"
-            />
- 
-            <View>
-              <Text style={styles.textName}>Meet Now</Text>
-              <Text style={styles.text}> You can meet now easily</Text>
-            </View>
-            <Entypo
-                style={{marginRight: '7%'}}
+              <Entypo
+                style={{marginLeft: '7%'}}
                 name="plus"
                 size={24}
                 color="#045ce2"
               />
-            
+            <View>
+              <Text style={styles.textName}>Meet Now</Text>
+              <Text style={styles.text}> You can meet now easily</Text>
+            </View>
+            <AntDesign
+              style={{marginRight: '7%'}}
+              name="arrowright"
+              size={24}
+              color="black"
+            />            
           </TouchableOpacity>
-          <Modal style={{width:"50%",height:'50%',alignItems:'center',justifyContent:'center'}} transparent={true} visible={this.state.create}>
+          <Modal style={{width:"50%",height:'50%',alignItems:'center',justifyContent:'center'}} transparent={true} visible={isCreate}>
             <View style={styles.centeredView1}>
-             <View style={styles.modalView}>
+          <View style={styles.modalView}>
                <Text style={styles.headTitle}>Create Meeting</Text>
                 <Text style={styles.defTitle}> You can meet now easily</Text>
                 <TextInput style={styles.input} placeholder="      Meeting Name"/>
@@ -161,34 +135,36 @@ export default class Home extends React.Component {
                 <TextInput style={styles.input} placeholder="      English"/>
                 <Text style={styles.selectLang}>Allow Others to edit</Text>
                 <Text style={styles.textDes}>It means that ypu and all the people in the meeting can change that the text for a certain amount of time</Text>
-                <Text style={styles.button1} onPress={this.createMeet} >Create Meeting</Text>
+                <Text style={styles.button1} onPress={() => {navigation.navigate('MeetChat');create()}} >Create Meeting</Text>
                
-                  </View>
+                </View>
                 </View>
             </Modal>
 
           <TouchableOpacity 
           style={styles.meet}
-           onPress={this.scheduleMeet}
-          ><AntDesign
-          style={{marginLeft: '7%'}}
-          name="arrowright"
-          size={24}
-          color="black"
-        />
+           onPress={schedule}
+          >
+               <FontAwesome5
+              style={{marginLeft: '7%'}}
+              name="calendar"
+              size={24}
+              color="#045ce2"
+            />
             
             <View>
               <Text style={styles.textName}>Schedule Meeting</Text>
               <Text style={styles.text}> You can meet now easily</Text>
             </View>
-            <FontAwesome5
+           
+            <AntDesign
               style={{marginRight: '7%'}}
-              name="calendar"
+              name="arrowright"
               size={24}
-              color="#045ce2"
-            />
+              color="black"
+            /> 
           </TouchableOpacity>
-          <Modal style={{width:"50%",height:'50%',alignItems:'center',justifyContent:'center'}} transparent={true} visible={this.state.schedule}>
+          <Modal style={{width:"50%",height:'50%',alignItems:'center',justifyContent:'center'}} transparent={true} visible={isSchedule}>
             <View style={styles.centeredView1}>
           <View style={styles.modalView}>
                <Text style={styles.headTitle}>Schedule Meeting</Text>
@@ -198,7 +174,7 @@ export default class Home extends React.Component {
                 <TextInput style={styles.input} placeholder="      English"/>
                 <Text style={styles.selectLang}>Send to</Text>
                 <TextInput style={styles.input} placeholder="      team a Group"/>
-                <Text style={styles.button1} onPress={this.scheduleMeet} >Send Invitation</Text>
+                <Text style={styles.button1} onPress={() => {navigation.navigate('MeetChat');schedule()}} >Send Invitation</Text>
                
                 </View>
                 </View>
@@ -206,27 +182,28 @@ export default class Home extends React.Component {
 
           <TouchableOpacity 
           style={styles.meet}
-          onPress={this.joinMeet}
+          onPress={join}
           >
-             <AntDesign
+             <FontAwesome
               style={{marginLeft: '7%'}}
-              name="arrowright"
+              name="video-camera"
               size={24}
-              color="black"
+              color="#045ce2"
             />
             <View>
               <Text style={styles.textName}>Join Meeting</Text>
               <Text style={styles.text}> You can meet now easily</Text>
             </View>
-            <FontAwesome
+            <AntDesign
               style={{marginRight: '7%'}}
-              name="video-camera"
+              name="arrowright"
               size={24}
-              color="#045ce2"
+              color="black"
             />
+            
            
           </TouchableOpacity>
-          <Modal  visible={this.state.join} transparent={true}>
+          <Modal  visible={isJoin} transparent={true}>
             <View style={styles.centeredView1}>
           <View style={styles.modalView}>
           <Text style={styles.headTitle}>Join Meeting</Text>
@@ -234,37 +211,40 @@ export default class Home extends React.Component {
                 <TextInput style={styles.input} placeholder="      Meeting ID"/>
                 <Text style={styles.selectLang}>Select Language</Text>
                 <TextInput style={styles.input} placeholder="      English"/>
-                <Text style={styles.button1} onPress={this.joinMeet} >Join Meeting</Text>
+                <Text style={styles.button1} onPress={() => {navigation.navigate('MeetChat');join()}} >Join Meeting</Text>
               </View>
               </View>
             </Modal>
 
         </View>
         <View style={styles.footer}>
-        <TouchableOpacity 
-        onPress={() => this.props.navigation.navigate('Setting')} 
-        style={styles.button}>
-            <Feather name="settings" size={24} color="black" />
+       
+        <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Home')}
+          >
+             <MaterialIcons name="home" size={26} color="#1458c3" />
           </TouchableOpacity>
 
           <TouchableOpacity 
-          onPress={() => this.props.navigation.navigate('SaveMeeting')}
+          onPress={() => navigation.navigate('Profile')}
           style={styles.button}>
             <FontAwesome5 name="user-circle" size={24} color="black" />
           </TouchableOpacity>
-         
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => this.props.navigation.navigate('Home')}
-          >
-            <SimpleLineIcons name="home" size={24} color="#1458c3" />
+        
+          <TouchableOpacity 
+        onPress={() => navigation.navigate('Settings')} 
+        style={styles.button}>
+            <Feather name="settings" size={24} color="black" />
           </TouchableOpacity>
           
         </View>
         </View>
     );
-  }
 }
+
+export default HomeScreen
+
 
 const styles = StyleSheet.create({
     centeredView: {

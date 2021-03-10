@@ -12,27 +12,30 @@ import {
   Feather,
   FontAwesome,
   SimpleLineIcons,
+  MaterialIcons,
   FontAwesome5,
 } from '@expo/vector-icons';
 
-export default class Profile extends React.Component {
-  render() {
-    return (
+const Profile = ({navigation}) => {
+
+return (
       <View style={styles.container}>
         <View style={styles.header}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('ContactUsInfo')}>
-            <FontAwesome name="pencil-square-o" size={24} color="black" />
-          </TouchableOpacity>
-          <Text style={[styles.text,{fontSize:15}]}>My Profile</Text>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
-            
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Ionicons name="arrow-back" size={24} color="black" />
           </TouchableOpacity>
+          <Text style={[styles.text,{fontSize:18}]}>My Profile</Text>
+          <TouchableOpacity 
+          onPress={() => navigation.navigate('Splash')}
+          >
+            <FontAwesome name="pencil-square-o" size={24} color="black" />
+          </TouchableOpacity>
+         
         </View>
 
         <View style={styles.info}>
           <Image
-          source={require('../assets/image/download.jpg')}
+          source={require('../assets/download.jpg')}
           style={{width: '30%', height: '60%', borderRadius: 10}}
           />
           <Text style={[styles.textName, {marginTop: '2%'}]}>Ehab Hafez </Text>
@@ -63,31 +66,37 @@ export default class Profile extends React.Component {
           />
         </View>
         <View style={styles.footer}>
-        <TouchableOpacity 
-        onPress={() => this.props.navigation.navigate('Setting')} 
-        style={styles.button}>
-            <Feather name="settings" size={24} color="black" />
+
+        <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Home')}
+          >
+            <MaterialIcons name="home" size={26} color="black" />
           </TouchableOpacity>
+      
 
           <TouchableOpacity 
-          onPress={() => this.props.navigation.navigate('Profile')}
+          onPress={() => navigation.navigate('Profile')}
           style={styles.button}>
             <FontAwesome5 name="user-circle" size={24} color="#1458c3" />
           </TouchableOpacity>
-         
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => this.props.navigation.navigate('Home')}
-          >
-            <SimpleLineIcons name="home" size={24} color="black" />
+
+          <TouchableOpacity 
+        onPress={() => navigation.navigate('Settings')} 
+        style={styles.button}>
+            <Feather name="settings" size={24} color="black" />
           </TouchableOpacity>
+         
+         
        
           
         </View>
       </View>
     );
-  }
+
 }
+
+export default Profile
 
 const styles = StyleSheet.create({
   container: {height: '100%', backgroundColor: '#fafbfd'},
@@ -117,12 +126,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 10,
     color: '#030848',
-    fontFamily: 'SemiBold',
+    // fontFamily: 'SemiBold',
   },
   textName: {
     fontSize: 24,
     color: '#030947',
-    fontFamily: 'SemiBold',
+    // fontFamily: 'SemiBold',
     fontWeight:'800',
   },
   info: {
