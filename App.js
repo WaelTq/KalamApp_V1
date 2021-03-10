@@ -18,6 +18,14 @@ import Register from './screens/Register';
 import MeetChat from './screens/MeetChat';
 import MeetUsers from './screens/MeetUsers';
 import MeetInfo from './screens/MeetInfo';
+import SavedMeeting from './screens/SavedMeeting';
+import SavedMeetingChat from './screens/SavedMeetingChat';
+
+
+
+
+// ctrl+alt+l
+// console.log("🚀 ~ file: App.js ~ line 21 ~ MeetInfo", MeetInfo)
 
 
 
@@ -58,6 +66,13 @@ const Drawer = createDrawerNavigator();
         <Drawer.Screen name="MeetChat" component={MeetChat} />
         <Drawer.Screen name="MeetUsers" component={MeetUsers} />
         <Drawer.Screen name="MeetInfo" component={MeetInfo} />
+
+        <Drawer.Screen name="SavedMeeting" component={SavedMeeting} />
+        <Drawer.Screen name="SavedMeetingChat" component={SavedMeetingChat} />
+
+
+
+        
 
         
         

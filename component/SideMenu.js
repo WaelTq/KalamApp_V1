@@ -55,7 +55,7 @@ const SideMenu = (props) => {
                      <DrawerItem 
                         icon = { ()=> ( <FontAwesome name="video-camera" size={30} color="#055be2"  />) } 
                         label="Saved Meetings"
-                        onPress={ ()=>{props.navigation.navigate('wallet')} }
+                        onPress={ ()=>{props.navigation.navigate('SavedMeeting')} }
                     />
                      <DrawerItem 
                         icon = { ()=> ( <Ionicons name="ios-settings-sharp" size={30} color="#055be2"/> ) } 

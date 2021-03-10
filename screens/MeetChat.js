@@ -19,6 +19,8 @@ import {
   Entypo,
 } from '@expo/vector-icons';
 
+// import RoomScreen from './RoomScreen'
+
 const MeetChat = ({navigation}) => {
  
   return (
@@ -78,7 +80,7 @@ borderBottomColor: '#1c4c96',borderColor:'#fff'}]}>
         </View>
 
         <View style={styles.Message}>
-
+            {/* <RoomScreen /> */}
         </View>
 
         <View style={styles.sendMessage}>
